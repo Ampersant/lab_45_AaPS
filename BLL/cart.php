@@ -5,7 +5,7 @@ use App\UnitOfWork;
 error_reporting(-1);
 session_start();
 require_once __DIR__ . '/inc/funcs.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/EntityManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/UoW.php';
 
 if (isset($_GET['cart'])) {
     switch ($_GET['cart']) {
@@ -38,8 +38,8 @@ if (isset($_GET['cart'])) {
             break;
         case 'order':
                 if (!empty($_SESSION['cart'])) {
-                $uow = new UnitOfWork($entityManager);
-                $uow->createOrder($_SESSION['cart']);
+                
+                $UoW->createOrder($_SESSION['cart']);
                 unset($_SESSION['cart']);
                 unset($_SESSION['cart.sum']);
                 unset($_SESSION['cart.qty']);

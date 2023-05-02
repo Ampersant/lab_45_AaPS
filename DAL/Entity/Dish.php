@@ -44,7 +44,7 @@
             $this->description = "Def desc";
             $this->img = "img.png";
             $this->price =12.5;
-            $this->category = 1;
+            $this->category = 26;
         }
         
         // Геттеры и сеттеры для свойств

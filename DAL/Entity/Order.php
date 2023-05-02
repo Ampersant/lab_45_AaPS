@@ -32,14 +32,16 @@
             $this->totalPrice = 0;
         }
 
-        public function addDish(Dish $dish, $quantity) {
+        public function addDish(Dish $dish, $quantity, $em) {
             $orderDish = new OrderDish();
+            
             $orderDish->setOrder($this);
             $orderDish->setDish($dish);
             $orderDish->setQuantity($quantity);
-            $this->totalPrice += $dish->getPrice() * $quantity;
-        }
 
-        // Геттеры и сеттеры для свойств
-        
+            $this->totalPrice += $dish->getPrice() * $quantity;
+
+            $em->persist($orderDish);
+            $em->flush();
+        }
     }

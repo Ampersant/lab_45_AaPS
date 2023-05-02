@@ -1,8 +1,5 @@
 <?php 
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/BLL/inc/funcs.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/BLL/menuGen.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/EntityManager.php';
-   
 
     $day = $_GET['id'];
     if (!empty($menu)) {?>

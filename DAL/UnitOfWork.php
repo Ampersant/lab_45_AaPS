@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityManager;
     
     class UnitOfWork
     {
-        private $entityManager;
+        private EntityManager $entityManager;
     
         public function __construct(EntityManager $entityManager)
         {
@@ -37,7 +37,7 @@ use Doctrine\ORM\EntityManager;
                 if (!$dish) {
                     throw new \Exception(sprintf('Dish with id %d not found', $dishId));
                 }
-                $order->addDish($dish, $item['qty']);
+                $order->addDish($dish, $item['qty'], $this->entityManager);
             }
             $this->entityManager->persist($order);
             $this->entityManager->flush();

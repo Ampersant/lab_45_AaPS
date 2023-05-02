@@ -2,10 +2,10 @@
 
 use App\Dish;
 use App\UnitOfWork;
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/EntityManager.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/UoW.php';
     // retrieve the search query from the AJAX request
     $searchQuery = $_POST['search'];
-    $queryBuilder = $entityManager->createQueryBuilder();
+    $queryBuilder = $UoW->getEM()->createQueryBuilder();
     $queryBuilder
     ->select('e')
     ->from(Dish::class, 'e')
@@ -30,7 +30,9 @@ use App\UnitOfWork;
                         </div>
                     </div>
                 </div>
-        <?php }
+    
+
+        <?php } ?> <script src="js/cart.js"></script> <?php
     } else {
         echo '<p>No results found</p>';
     }

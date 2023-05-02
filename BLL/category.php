@@ -2,7 +2,7 @@
     use App\Category;
     use App\Dish;
     require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/BLL/inc/funcs.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/EntityManager.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/lab_45_AaPS/DAL/UoW.php';
     $requireCategory = $_GET['category_id'];
     if ($requireCategory == "all") {
        $allDishes = get_dishes();
@@ -22,7 +22,7 @@
     </div>
     <?php } 
     }
-    $dishes = $entityManager->getRepository(Dish::class)
+    $dishes = $UoW->getEM()->getRepository(Dish::class)
     ->findBy(['category' => $requireCategory]);
     if (count($dishes) > 0) {
         foreach ($dishes as $result) { ?>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-        <?php }
+        <?php } ?> <script src="js/cart.js"></script> <?php 
     } else {
         echo '<p>No dishes with such category now..</p>';
     }

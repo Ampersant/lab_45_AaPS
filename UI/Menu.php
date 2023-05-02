@@ -52,8 +52,8 @@ $allCategories = get_all_categories();
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.php">home</a></li>
-                                        <li><a class="active" href="Menu.html">Menu</a></li>
+                                    <li><a class="active" href="index.php">home</a></li>
+                                        <li><a href="Menu.html">Menu</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -61,12 +61,11 @@ $allCategories = get_all_categories();
                                                 <li><a href="single-blog.html">single-blog</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li>
+                                        
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li>
+                                            <a id="get-cart" data-toggle="modal" data-target="#cart-modal" href="#">Cart  <span class="badge badge-light mini-cart-qty"><?= $_SESSION['cart.qty'] ?? 0 ?></span></a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -178,8 +177,8 @@ $allCategories = get_all_categories();
     </div>
     <!-- best_burgers_area_end  -->
     <!-- Menu section start -->
-    <div class="container box_1170 mb-5 mr-5">
-				<div class="row">
+    <div class="container box_1170 mb-5 mr-3" >
+				<div class="row align-items-center">
 					<div class="col-md-2">
                         <a href="?day=monday" class="genric-btn primary circle day-menu"  data-id="Monday">Monday</a>
 					</div>
@@ -465,12 +464,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
     </footer>
     <!-- footer_end  -->
+<!-- Modal -->
+    <div class="modal fade cart-modal" id="cart-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Корзина</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
+                        <div class="modal-cart-content">
+                        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
     <!-- JS here -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/category.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/category.js"></script> 
     <script src="js/days.js"></script>
 
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>

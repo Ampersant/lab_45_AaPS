@@ -16,7 +16,7 @@
         private $id;
         
         /**
-        *@ORM\ManyToOne(targetEntity="Order", inversedBy="orderDishes")
+        *@ORM\ManyToOne(targetEntity="Order", inversedBy="orderDishes", cascade={"persist"})
         *@ORM\JoinColumn(name="order_id", referencedColumnName="id", nullable=false)
         */
         private $order;

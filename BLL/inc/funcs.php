@@ -7,10 +7,7 @@ use App\UnitOfWork;
    require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\Entity\Dish.php');
    require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\Entity\Order.php');
    require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\Entity\Category.php');
-   require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\EntityManager.php');
-   require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\UnitOfWork.php');
-   $em = $entityManager;
-   $UoW = new UnitOfWork($em);
+   require_once('H:\xampp\htdocs\lab_45_AaPS\DAL\UoW.php');
    $dishRepository = $UoW->getDishRepository();
    $categoryRepository = $UoW->getCategoryRepository();
 
